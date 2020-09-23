@@ -64,12 +64,11 @@ func createFile(path, name string) *os.File {
 	var dir string
 	path = strings.TrimSpace(path)
 
-	if len(path) == 0 {
-		dir = ProjectPath() + `/logs/`
+
 	} else if strings.HasSuffix(path, `/`) {
-		dir = ProjectPath() + `/logs/` + path
+		dir =`logs/` + path
 	} else {
-		dir = ProjectPath() + `/logs/` + path + `/`
+		dir =`/logs/` + path + `/`
 	}
 	if _, err := os.Stat(dir); os.IsNotExist(err) {
 		err = os.MkdirAll(dir, 0666)
